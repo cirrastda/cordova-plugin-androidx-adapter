@@ -4,7 +4,7 @@ var CLASS_MAPPINGS_FILE = "class-mappings.json";
 var JAVA_SRC_PATH = "./platforms/android/app/src/main/java";
 var BUILD_GRADLE_PATH = "./platforms/android/app/build.gradle";
 var PROJECT_PROPERTIES_PATH = "./platforms/android/project.properties";
-var GRADLE_PROPERTIES_PATH = "./platforms/android/project.properties";
+var GRADLE_PROPERTIES_PATH = "./platforms/android/gradle.properties";
 var MANIFEST_PATH = "./platforms/android/app/src/main/AndroidManifest.xml";
 
 var deferral, fs, path, now, recursiveDir;
@@ -47,6 +47,7 @@ function run() {
     }
     fs.writeFileSync(BUILD_GRADLE_PATH, buildGradle, 'utf8');
     fs.writeFileSync(PROJECT_PROPERTIES_PATH, projectProperties, 'utf8');
+    fs.writeFileSync(GRADLE_PROPERTIES_PATH, gradleProperties, 'utf8');
 
     var classMappings = JSON.parse(fs.readFileSync(path.join(__dirname, '.', CLASS_MAPPINGS_FILE)).toString());
 
